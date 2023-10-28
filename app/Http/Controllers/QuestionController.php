@@ -30,19 +30,21 @@ class QuestionController extends Controller
         Question::create($request->all());
 
         return redirect()->route('questions.index')
-            ->with('success','Question created successfully.');
+            ->with('success', 'Question created successfully.');
     }
 
-    public function show()
+    /**
+     * Display the specified resource.
+     */
+    public function show(int $id)
     {
-        return redirect()->route('questions.index')
-            ->with('success','Redirected from "show" route.');
-        //TODO Implémenter
+        $question = Question::findOrFail($id);
+        return view('questions.show', ['question' => $question]);
     }
 
     public function destroy($id)
     {
-        Question::destroy($id);
-        //TODO Implémenter
+        Question::findOrFail($id)->delete();
+        return redirect()->route('questions.index')->with('success', 'Question deleted successfully');
     }
 }
