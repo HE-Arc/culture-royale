@@ -10,6 +10,6 @@ class Question extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'statement', 'difficulty', 'answer'
+        'title', 'statement', 'difficulty', 'answer', 'image'
     ];
 }

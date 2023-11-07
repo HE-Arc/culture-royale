@@ -24,14 +24,24 @@ class QuestionController extends Controller
             'title' => 'required|min:1|max:30',
             'statement' => 'required|min:1|max:50',
             'difficulty' => 'required|integer|gte:1|lte:5',
-            'answer' => 'required|min:1|max:50'
+            'answer' => 'required|min:1|max:50',
+            'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        Question::create($request->all());
+        $input = $request->all();
+
+        if ($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension(); //afin de determiner la question uploader le plus recemment
+            $request->image->move(public_path('images'), $imageName);
+            $input['image'] = $imageName;
+        }
+
+        Question::create($input);
 
         return redirect()->route('questions.index')
             ->with('success', 'Question created successfully.');
     }
+
 
     /**
      * Display the specified resource.
@@ -50,10 +60,8 @@ class QuestionController extends Controller
 
     public function edit($id)
     {
-        $question = Question::find($id);
-        if (is_null($question)) {
-            return redirect()->route('questions.index')->with('error', 'Question not found.');
-        }
+        $question = Question::findOrFail($id);
+
         return view('questions.edit', compact('question'));
     }
 
@@ -66,10 +74,7 @@ class QuestionController extends Controller
             'answer' => 'required',
         ]);
 
-        $question = Question::find($id);
-        if (is_null($question)) {
-            return redirect()->route('questions.index')->with('error', 'Question not found.');
-        }
+        $question = Question::findOrFail($id);
 
         $question->update($request->all());
         return redirect()->route('questions.index')->with('success', 'Question updated successfully.');
