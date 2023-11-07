@@ -17,9 +17,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/questions/{id}/edit', [ModifQController::class, 'edit'])->name('questions.edit');
-Route::put('/questions/{id}', [ModifQController::class, 'update'])->name('questions.update');
-
-
 
 Route::resource('questions', QuestionController::class);
