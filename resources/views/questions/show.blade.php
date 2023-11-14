@@ -13,6 +13,11 @@
                     <strong>{{ $question->title }}</strong>
                 </div>
                 <div class="card-body">
+                    @if ($question->image)
+                    <div class="text-center">
+                        <img src="{{ asset('images/' . $question->image) }}" alt="Question Image" class="img-fluid">
+                    </div>
+                    @endif
                     <div class="form-row">
                         <div class="row mt-3">
                             <div class="form-group col-6">

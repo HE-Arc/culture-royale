@@ -3,8 +3,8 @@
     <h1>Créer une nouvelle question</h1>
 
     <table class="table">
-        <form action="{{ route('questions.store') }}" method="POST" enctype="multipart/form-data>
-            @csrf <!-- {{ csrf_field() }} -->
+        <form action="{{ route('questions.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <tr>
                 <td><label for="title">Titre de la question</label></td>
                 <td> : </td>
