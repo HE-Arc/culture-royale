@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ModifQController;
 use Illuminate\Support\Facades\Route;
@@ -17,5 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/quiz', [QuizController::class, 'index'])->name('Quiz');
+Route::post('/quiz/submit', [QuizController::class, 'submitAnswer'])->name('quiz.submit');
+
+
 
 Route::resource('questions', QuestionController::class);
