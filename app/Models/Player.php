@@ -9,5 +9,5 @@ class Player extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['username'];
+    protected $fillable = ['name'];
 }
