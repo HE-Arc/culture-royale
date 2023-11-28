@@ -39,6 +39,7 @@
         initializeQuiz({
             submitUrl: '{{ route('quiz.submit') }}',
             questionId: '{{ $question->id }}',
+            nextQuestionUrl: '{{ route('Quiz') }}',
         });
     });
 </script>
