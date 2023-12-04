@@ -9,5 +9,9 @@ class Player extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'lobby_id'];
+
+    public function author(){
+        return $this->belongsTo(Author::class);
+    }
 }

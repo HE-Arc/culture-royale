@@ -9,8 +9,8 @@ class Lobby extends Model
 {
     use HasFactory;
 
-    public function books()
+    public function players()
     {
-        return $this->hasMany(Book::class);
+        return $this->hasMany(Player::class);
     }
 }
