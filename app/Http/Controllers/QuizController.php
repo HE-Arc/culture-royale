@@ -20,9 +20,14 @@ class QuizController extends Controller
         $request->validate(['answer' => 'required', 'question_id' => 'required']);
 
         $question = Question::findOrFail($request->question_id);
-        $isCorrect = strtolower(trim($request->answer)) === strtolower(trim($question->answer));
 
-        // Fetch a new random question
+        // Conversion en lowercase et split des mots
+        $submittedWords = explode(' ', strtolower(trim($request->answer)));
+        $correctWords = explode(' ', strtolower(trim($question->answer)));
+
+        // On verifie que les mots soumis sont tous dans la reponse, validation plus relaxe
+        $isCorrect = count(array_intersect($submittedWords, $correctWords)) == count($submittedWords);
+
         $nextQuestion = Question::where('id', '!=', $question->id)
                                 ->inRandomOrder()
                                 ->first();
@@ -32,4 +37,5 @@ class QuizController extends Controller
             'nextQuestion' => $nextQuestion
         ]);
     }
+
 }

@@ -35,6 +35,9 @@ class QuestionController extends Controller
             $request->image->move(public_path('images'), $imageName);
             $input['image'] = $imageName;
         }
+        else {
+            Throw new \Exception("Image is required");
+        }
 
         Question::create($input);
 

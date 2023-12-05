@@ -12,10 +12,10 @@
                 <div class="card-body">
                     <p id="question">{{ $question->statement }}</p>
                     @if ($question->image)
-                        <img id="question-image" src="{{ asset('images/' . $question->image) }}" alt="Question Image" class="img-fluid mb-3">
+                    <img id="question-image" src="{{ $question->image ? asset('images/' . $question->image) : '' }}" alt="Question Image" class="img-fluid mb-3" style="{{ $question->image ? '' : 'display: none;' }}">
                     @endif
                     <div id="timer" class="alert alert-warning text-center">
-                        Time left: <strong>10 seconds</strong>
+                        Temps: <strong>10 seconds</strong>
                     </div>
 
                     <!-- Answer Form -->
@@ -40,6 +40,7 @@
             submitUrl: '{{ route('quiz.submit') }}',
             questionId: '{{ $question->id }}',
             nextQuestionUrl: '{{ route('Quiz') }}',
+            image_url: '{{ $question->image }}',
         });
     });
 </script>
