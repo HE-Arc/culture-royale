@@ -82,7 +82,7 @@ function initializeQuiz(quizData) {
 
     const endGame = () => {
         clearInterval(countdown);
-        endMessageElement.innerText = "Thank you for playing!";
+        window.location.href = '/quiz/end'; //affichage de l'ecran de fin
     };
 
     const startCountdown = () => {

@@ -27,7 +27,7 @@
                         <a class="nav-link" href="{{ route('questions.index') }}">Questions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Quiz') }}">Quiz</a>
+                        <a class="nav-link" href="{{ route('quiz.start') }}">Quiz</a>
                     </li>
                 </ul>
             </div>

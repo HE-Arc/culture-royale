@@ -27,6 +27,8 @@
                     </form>
                     <div id="score">Score: 0</div>
                     <div id="end-message"></div>
+                    
+
                 </div>
             </div>
         </div>
@@ -39,7 +41,7 @@
         initializeQuiz({
             submitUrl: '{{ route('quiz.submit') }}',
             questionId: '{{ $question->id }}',
-            nextQuestionUrl: '{{ route('Quiz') }}',
+            nextQuestionUrl: '{{ route('quiz.index') }}',
             image_url: '{{ $question->image }}',
         });
     });
