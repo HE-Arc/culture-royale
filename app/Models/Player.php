@@ -11,7 +11,8 @@ class Player extends Model
 
     protected $fillable = ['name', 'lobby_id'];
 
-    public function author(){
-        return $this->belongsTo(Author::class);
+    public function lobby()
+    {
+        return $this->belongsTo(Lobby::class);
     }
 }
