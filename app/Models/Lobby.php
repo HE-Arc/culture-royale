@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Question extends Model
+class Lobby extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title', 'statement', 'difficulty', 'answer', 'image'
-    ];
+    public function players()
+    {
+        return $this->hasMany(Player::class);
+    }
 }
