@@ -18,34 +18,123 @@ class QuestionSeeder extends Seeder
         array_push(
             $questions,
             new Question([
-                "title" => "Un peu de hauteur !",
-                "statement" => "Quelle est la plus haute montagne du monde ?",
+                "title" => "Sous l'eau",
+                "statement" => "Quel est le plus long fleuve du monde ?",
+                "difficulty" => 2,
+                "answer" => "Le Nil",
+                "image" => "nil.jpg"
+            ]),
+            // 2
+            new Question([
+                "title" => "Artiste peintre",
+                "statement" => "Qui a peint la Joconde ?",
                 "difficulty" => 1,
-                "answer" => "L'Everest"
+                "answer" => "Léonard de Vinci",
+                "image" => "joconde.jpg"
             ]),
+            // 3
             new Question([
-                "title" => "Revoir ses bases",
-                "statement" => "16 + 20 x 2 - 6 = ?",
+                "title" => "L'exploration spatiale",
+                "statement" => "Quelle est la première personne à avoir marché sur la lune ?",
+                "difficulty" => 2,
+                "answer" => "Neil Armstrong",
+                "image" => "lune.jpg"
+            ]),
+            // 4
+            new Question([
+                "title" => "Dans l'espace",
+                "statement" => "Quelle planète est connue comme la 'Planète Rouge' ?",
+                "difficulty" => 2,
+                "answer" => "Mars",
+                "image" => "mars.jpg"
+            ]),
+            // 5
+            new Question([
+                "title" => "Égypte antique",
+                "statement" => "Qui était le dernier pharaon d'Égypte ?",
+                "difficulty" => 3,
+                "answer" => "Cléopâtre",
+                "image" => "cleopatre.jpg"
+            ]),
+                    // 6
+            new Question([
+                "title" => "Ciel étoilé",
+                "statement" => "Quelle est la plus grande constellation dans le ciel nocturne ?",
+                "difficulty" => 2,
+                "answer" => "La Vierge",
+                "image" => "constellation_vierge.jpg"
+            ]),
+            // 7
+            new Question([
+                "title" => "Chef-d'œuvre de la littérature",
+                "statement" => "Qui est l'auteur de 'L'Étranger' ?",
+                "difficulty" => 3,
+                "answer" => "Albert Camus",
+                "image" => "camus.jpg"
+            ]),
+            // 8
+            new Question([
+                "title" => "Voyage dans le temps",
+                "statement" => "En quelle année a commencé la Révolution française ?",
+                "difficulty" => 3,
+                "answer" => "1789",
+                "image" => "revolution_francaise.jpg"
+            ]),
+            // 9
+            new Question([
+                "title" => "Innovations technologiques",
+                "statement" => "Qui est connu pour avoir inventé l'ampoule électrique ?",
                 "difficulty" => 1,
-                "answer" => "50"
+                "answer" => "Thomas Edison",
+                "image" => "edison.jpg"
             ]),
+            // 10
             new Question([
-                "title" => "Raaaaaawr",
-                "statement" => "Quelle période de la préhistoire a donné son nom a un film de Steven Spielberg",
+                "title" => "Sur la piste des dinosaures",
+                "statement" => "Quel dinosaure est connu pour son grand cou ?",
+                "difficulty" => 2,
+                "answer" => "Le Brachiosaure",
+                "image" => "brachiosaure.jpg"
+            ]),
+                    // 11
+            new Question([
+                "title" => "Exploration de l'espace",
+                "statement" => "Quelle est la première femme à avoir voyagé dans l'espace ?",
+                "difficulty" => 2,
+                "answer" => "Valentina Terechkova",
+                "image" => "terechkova.jpg"
+            ]),
+            // 12
+            new Question([
+                "title" => "Merveille architecturale",
+                "statement" => "Où se trouve le Taj Mahal ?",
+                "difficulty" => 1,
+                "answer" => "En Inde",
+                "image" => "taj_mahal.jpg"
+            ]),
+            // 13
+            new Question([
+                "title" => "Profondeurs marines",
+                "statement" => "Quel est l'océan le plus profond sur Terre ?",
+                "difficulty" => 2,
+                "answer" => "L'océan Pacifique",
+                "image" => "ocean_pacifique.jpg"
+            ]),
+            // 14
+            new Question([
+                "title" => "Les Grands Compositeurs",
+                "statement" => "Qui a composé la 5ème Symphonie ?",
                 "difficulty" => 3,
-                "answer" => "Le Jurassique"
+                "answer" => "Ludwig van Beethoven",
+                "image" => "beethoven.jpg"
             ]),
+            // 15
             new Question([
-                "title" => "Complètement à l'Ouest",
-                "statement" => "Quel pays est appelé le 'pays du soleil levant' ?",
-                "difficulty" => 3,
-                "answer" => "Le Japon"
-            ]),
-            new Question([
-                "title" => "Bienvenue sur Arrakis",
-                "statement" => "Quel réalisateur est connu pour avoir adapté la série 'Dune' de Frank Herbet en films ?",
-                "difficulty" => 4,
-                "answer" => "Denis Villeneuve"
+                "title" => "Capitales du monde",
+                "statement" => "Quelle est la capitale de l'Espagne ?",
+                "difficulty" => 1,
+                "answer" => "Madrid",
+                "image" => "madrid.jpg"
             ]),
 
         );
