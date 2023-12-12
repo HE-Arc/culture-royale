@@ -3,6 +3,8 @@
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ModifQController;
+use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\LobbyController;
 use Illuminate\Support\Facades\Route;
@@ -27,7 +29,8 @@ Route::post('/quiz/submit', [QuizController::class, 'submitAnswer'])->name('quiz
 
 
 Route::resource('questions', QuestionController::class);
-
+Route::get('/scores', [ScoreController::class, 'index'])->name("scores.index");
+Route::post('/scores/store', [ScoreController::class, 'store'])->name("scores.store");
 Route::post('lobbies/join', [LobbyController::class, 'join'])->name('lobbies.join');
 Route::post('lobbies/store', [LobbyController::class, 'store'])->name('lobbies.store');;
 Route::get('lobbies/{id}/join', [PlayerController::class, 'create'])->name('players.create');
