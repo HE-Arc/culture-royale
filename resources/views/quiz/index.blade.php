@@ -27,7 +27,7 @@
                     </form>
                     <div id="score">Score: 0</div>
                     <div id="end-message"></div>
-                    
+
 
                 </div>
             </div>
