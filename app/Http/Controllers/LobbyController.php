@@ -8,13 +8,24 @@ use Illuminate\Http\Request;
 
 class LobbyController extends Controller
 {
-    public function store()
+    public function store(Request $request)
     {
-        $lobby = Lobby::create();
 
-        return redirect()->route('players.create', ['id' => $lobby->id,])
-            ->with('success', 'Lobby created successfully.');
+        $lobbyId = $request->input('lobby_id');
+
+        if ($lobbyId) {
+            $lobby = Lobby::find($lobbyId);
+            if (!$lobby) {
+                $lobby = Lobby::create();
+            }
+        } else {
+            $lobby = Lobby::create();
+        }
+        
+        return redirect()->route('players.create', ['id' => $lobby->id])
+            ->with('success', 'Lobby joined successfully.');
     }
+
 
     public function join(Request $request)
     {

@@ -5,6 +5,12 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-8 offset-md-2">
+            @if (session('currentPlayer'))
+                <div class="alert alert-info">
+                    Playing as: {{ session('currentPlayer')->name }}
+                </div>
+            @endif
+
             <div class="card">
                 <div class="card-header">
                     <strong>Question:</strong>
