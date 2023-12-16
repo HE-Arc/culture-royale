@@ -7,6 +7,7 @@
             <h1>Quiz terminé!</h1>
             <p>Votre score final: {{ $score }}</p>
             <a href="{{ route('quiz.index') }}" class="btn btn-primary">Restart Quiz</a>
+            <a href="{{ route('lobbies.waiting', ['id' => session('currentLobby')->id]) }}" class="btn btn-primary">Back to lobby</a>
         </div>
     </div>
 </div>

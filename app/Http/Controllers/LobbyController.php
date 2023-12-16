@@ -35,7 +35,10 @@ class LobbyController extends Controller
         ]);
 
         $player = Player::create($request->all());
+        $lobbyId = $request->input('lobby_id');
+        $lobby = Lobby::find($lobbyId);
         session(['currentPlayer' => $player]);
+        session(['currentLobby' => $lobby]);
 
         return redirect()->route('lobbies.waiting', ['id' => $request['lobby_id'],])
             ->with('success', 'Lobby joined successfully.');
@@ -46,6 +49,7 @@ class LobbyController extends Controller
         $lobby = Lobby::findOrFail($id);
         $players = Player::where('lobby_id', $id)->get();
         $currentPlayer = session('currentPlayer');
+        session(['currentPlayers' => $players]);
 
         return view('lobbies.waiting', ['lobby' => $lobby, 'players' => $players, 'currentPlayer' => $currentPlayer]);
     }
