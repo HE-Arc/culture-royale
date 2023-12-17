@@ -1,6 +1,6 @@
 @extends('layout.app')
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+<link rel="stylesheet" href="{{asset('css/layout/game.css')}}">
 @section('content')
 <div class="container mt-5">
     <div class="row">
@@ -27,7 +27,7 @@
                     </form>
                     <div id="score">Score: 0</div>
                     <div id="end-message"></div>
-                    
+
 
                 </div>
             </div>

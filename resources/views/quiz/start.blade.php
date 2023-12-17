@@ -1,5 +1,5 @@
 @extends('layout.app')
-
+<link rel="stylesheet" href="{{ asset('css/layout/game.css') }}">
 @section('content')
 <div class="container mt-5">
     <div class="row">

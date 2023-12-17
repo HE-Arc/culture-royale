@@ -1,4 +1,5 @@
 @extends('layout.app')
+<link rel="stylesheet" href="{{ asset('css/layout/game.css') }}">
 @section('content')
     <h1>Culture Royale</h1>
     <p class="lead">Top mondial</p>

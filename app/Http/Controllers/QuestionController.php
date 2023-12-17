@@ -25,13 +25,13 @@ class QuestionController extends Controller
             'statement' => 'required|min:1|max:50',
             'difficulty' => 'required|integer|gte:1|lte:5',
             'answer' => 'required|min:1|max:50',
-            'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
         ]);
 
         $input = $request->all();
 
         if ($request->hasFile('image')) {
-            $imageName = time().'.'.$request->image->extension(); //afin de determiner la question uploader le plus recemment
+            $imageName = time().'.'.$request->image->extension(); //afin de determiner la question upload le plus recemment
             $request->image->move(public_path('images'), $imageName);
             $input['image'] = $imageName;
         }

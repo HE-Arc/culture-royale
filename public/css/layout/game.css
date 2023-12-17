@@ -1,0 +1,17 @@
+body {
+    background-image: url("/images/background_animation.svg");
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+div#content {
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    margin-bottom: 20%;
+    padding: 64px;
+    flex-direction: column;
+}
