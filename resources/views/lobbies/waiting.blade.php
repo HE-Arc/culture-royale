@@ -10,7 +10,11 @@
                     @else
                         {{ $player->name }}
                     @endif
-
+                    - Score: {{ $playerScores[$player->id] ?? 'N/A' }}
+                    @if ($player->id == $highestScorePlayerId)
+                     <!-- Icone de couronne pour le king -->
+                        (Culture King)
+                    @endif
                 </li>
             @endforeach
         </ul>

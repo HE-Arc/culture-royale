@@ -13,10 +13,11 @@
             <div class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
                     Lobby #{{ $lobby->id }}
-                    <!-- Join Lobby Form -->
+                    <!-- Join Lobby Form - POST-->
                     <form action="{{ route('lobbies.store') }}" method="post">
                         @csrf
                         <input type="hidden" name="lobby_id" value="{{ $lobby->id }}" />
+                        <input type="hidden" name="playername" value="{{ session('currentPlayer')->name }}" />
                         <input type="submit" class="btn btn-primary btn-sm" value="Join" />
                     </form>
                 </div>
