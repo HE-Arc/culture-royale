@@ -10,6 +10,9 @@ class QuizController extends Controller
 
     public function index()
     {
+
+        session(['score' => 0]);
+
         // Fetch a random question
         $question = Question::inRandomOrder()->first();
 

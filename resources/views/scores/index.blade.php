@@ -28,4 +28,6 @@
             @endforeach
         </tbody>
     </table>
+    <a href="{{ route('home') }}"
+                    class="btn btn-light mt-3">Retourner</a>
 @endsection

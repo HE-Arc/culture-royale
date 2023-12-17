@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                <p class="lead">{{$question->statement}}</p>
+                <p class="lead" id="question">{{$question->statement}}</p>
                 @if ($question->image)
                     <img id="question-image" src="{{ $question->image ? asset('images/' . $question->image) : '' }}"
                         alt="Question Image" class="img-fluid mb-3" style="{{ $question->image ? '' : 'display: none;' }}">
