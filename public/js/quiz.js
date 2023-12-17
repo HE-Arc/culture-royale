@@ -43,7 +43,7 @@ function initializeQuiz(quizData) {
                     scoreElement.innerText = `Score: ${score}`;
                 } else {
                     timerElement.innerHTML =
-                        '<span class="text-danger">Mauvaise reponse!</span>';
+                        '<span class="text-danger">Mauvaise réponse !</span>';
                 }
                 if (questionsAnswered >= 10) {
                     endGame();
@@ -60,7 +60,6 @@ function initializeQuiz(quizData) {
         if (question) {
             document.getElementById("question").textContent =
                 question.statement;
-            console.log(question.id);
             document.getElementById("answer").value = "";
 
             // maj de l'ID de la question
@@ -91,7 +90,7 @@ function initializeQuiz(quizData) {
             if (timeLeft <= 0) {
                 clearInterval(countdown);
                 timerElement.innerHTML =
-                    '<span class="text-danger">Temps ecoulé!</span>';
+                    '<span class="text-danger">Temps écoulé !</span>';
                 submitAnswer();
             } else {
                 timerElement.innerHTML = `Temps restant: <strong>${timeLeft} seconds</strong>`;

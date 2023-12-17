@@ -1,0 +1,16 @@
+body {
+    background-image: url("/images/background_animation.svg");
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+div#content {
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    padding: 64px;
+    flex-direction: column;
+}

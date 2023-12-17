@@ -25,13 +25,13 @@ class QuestionController extends Controller
             'statement' => 'required|min:1|max:50',
             'difficulty' => 'required|integer|gte:1|lte:5',
             'answer' => 'required|min:1|max:50',
-            'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
         ]);
 
         $input = $request->all();
 
         if ($request->hasFile('image')) {
-            $imageName = time().'.'.$request->image->extension(); //afin de determiner la question uploader le plus recemment
+            $imageName = time().'.'.$request->image->extension(); //afin de determiner la question upload le plus recemment
             $request->image->move(public_path('images'), $imageName);
             $input['image'] = $imageName;
         }
@@ -42,7 +42,7 @@ class QuestionController extends Controller
         Question::create($input);
 
         return redirect()->route('questions.index')
-            ->with('success', 'Question created successfully.');
+            ->with('success', 'Question ajoutée');
     }
 
 
@@ -58,7 +58,7 @@ class QuestionController extends Controller
     public function destroy($id)
     {
         Question::findOrFail($id)->delete();
-        return redirect()->route('questions.index')->with('success', 'Question deleted successfully');
+        return redirect()->route('questions.index')->with('success', 'Question supprimée');
     }
 
     public function edit($id)
@@ -80,6 +80,6 @@ class QuestionController extends Controller
         $question = Question::findOrFail($id);
 
         $question->update($request->all());
-        return redirect()->route('questions.index')->with('success', 'Question updated successfully.');
+        return redirect()->route('questions.index')->with('success', 'Question mise à jour');
     }
 }
