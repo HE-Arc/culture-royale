@@ -7,7 +7,7 @@
         <div class="col-md-8 offset-md-2">
             <div class="card">
                 <div class="card-header">
-                    <strong>Question:</strong>
+                    <strong>Question :</strong>
                 </div>
                 <div class="card-body">
                     <p id="question">{{ $question->statement }}</p>
@@ -15,7 +15,7 @@
                     <img id="question-image" src="{{ $question->image ? asset('images/' . $question->image) : '' }}" alt="Question Image" class="img-fluid mb-3" style="{{ $question->image ? '' : 'display: none;' }}">
                     @endif
                     <div id="timer" class="alert alert-warning text-center">
-                        Temps: <strong>10 seconds</strong>
+                        Temps : <strong>10 secondes</strong>
                     </div>
 
                     <!-- Answer Form -->
@@ -23,7 +23,7 @@
                         <div class="form-group">
                             <input type="text" class="form-control" id="answer" placeholder="Enter your answer">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit Answer</button>
+                        <button type="submit" class="btn btn-primary">Répondre</button>
                     </form>
                     <div id="score">Score: 0</div>
                     <div id="end-message"></div>

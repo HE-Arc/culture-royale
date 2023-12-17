@@ -42,7 +42,7 @@ class QuestionController extends Controller
         Question::create($input);
 
         return redirect()->route('questions.index')
-            ->with('success', 'Question created successfully.');
+            ->with('success', 'Question ajoutée');
     }
 
 
@@ -58,7 +58,7 @@ class QuestionController extends Controller
     public function destroy($id)
     {
         Question::findOrFail($id)->delete();
-        return redirect()->route('questions.index')->with('success', 'Question deleted successfully');
+        return redirect()->route('questions.index')->with('success', 'Question supprimée');
     }
 
     public function edit($id)
@@ -80,6 +80,6 @@ class QuestionController extends Controller
         $question = Question::findOrFail($id);
 
         $question->update($request->all());
-        return redirect()->route('questions.index')->with('success', 'Question updated successfully.');
+        return redirect()->route('questions.index')->with('success', 'Question mise à jour');
     }
 }
