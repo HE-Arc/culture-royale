@@ -27,7 +27,7 @@
                         <a class="nav-link" href="{{ route('questions.index') }}">Questions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('quiz.start') }}">Quiz</a>
+                        <a class="nav-link" href="{{ route('scores.index') }}">Top Mondial</a>
                     </li>
                 </ul>
             </div>

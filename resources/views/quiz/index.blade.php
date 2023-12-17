@@ -5,6 +5,12 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-8 offset-md-2">
+            @if (session('currentPlayer'))
+                <div class="alert alert-info">
+                    Playing as: {{ session('currentPlayer')->name }}
+                </div>
+            @endif
+
             <div class="card">
                 <div class="card-header">
                     <strong>Question:</strong>
@@ -27,7 +33,19 @@
                     </form>
                     <div id="score">Score: 0</div>
                     <div id="end-message"></div>
-                    
+
+                    <div class="mt-4">
+                        <h5>Membres du lobby:</h5>
+                        <div class="d-flex flex-row">
+                            @foreach (session('currentPlayers', []) as $player)
+                                <div class="text-center mr-3">
+                                    <div class="avatar" style="width: 50px; height: 50px; background-color: #ddd; border-radius: 50%;"></div>
+                                    <small>{{ $player->name }}</small>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+
 
                 </div>
             </div>
