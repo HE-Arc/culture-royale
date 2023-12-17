@@ -1,0 +1,12 @@
+div#content {
+    height: 95vh;
+}
+
+img#question-image {
+    display: inline;
+    width: 100%;
+    vertical-align: top;
+    border-radius: 16px;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+}

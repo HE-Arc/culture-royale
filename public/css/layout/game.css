@@ -1,6 +1,6 @@
 body {
     background-image: url("/images/background_animation.svg");
-    height: 100vh;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
 }
@@ -9,9 +9,8 @@ div#content {
     justify-self: center;
     align-self: center;
     display: flex;
-    align-items: left;
+    align-items: start;
     justify-content: center;
-    margin-bottom: 20%;
     padding: 64px;
     flex-direction: column;
 }
