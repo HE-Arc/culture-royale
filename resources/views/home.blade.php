@@ -4,6 +4,10 @@
     <p class="lead">Bienvenue</p>
     <h3>Available Lobbies</h3>
     <div class="container mt-3">
+    <form action="{{ route('lobbies.store') }}" method="post">
+                        @csrf
+                        <input type="submit" class="btn btn-primary btn-sm" value="Create Lobby" />
+    </form>
     <div class="list-group">
         @foreach ($lobbies as $lobby)
             <div class="list-group-item">
