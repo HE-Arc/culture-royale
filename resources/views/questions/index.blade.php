@@ -15,6 +15,8 @@
                 <th scope="col">&nbsp;</th>
             </tr>
         </thead>
+        <!-- affichage de toutes les questions -->
+        <!-- l'utilisateur peut voir, modifier ou supprimer une question -->
         <tbody>
             @foreach ($questions as $question)
                 <tr>

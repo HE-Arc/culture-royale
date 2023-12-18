@@ -2,6 +2,8 @@
 <link rel="stylesheet" href="{{ asset('css/layout/game.css') }}">
 @section('content')
     <div class="container mt-5">
+        <!-- affichage du score final -->
+        <!-- permet de naviguer vers la page d'accueil ou vers le salon -->
         <div class="row">
             <div class="col-md-8 offset-md-2 text-center">
                 <h1>Quiz terminé!</h1>

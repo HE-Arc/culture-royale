@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h1>Modifier la question</h1>
-
+                <!-- formulaire pour modifier une question -->
                 <form method="POST" action="{{ route('questions.update', $question->id) }}">
                     @csrf
                     @method('PUT')

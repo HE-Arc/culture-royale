@@ -13,7 +13,9 @@ class QuizController extends Controller
 
         session(['score' => 0]);
 
-        // Fetch a random question
+        // recherche d'une question aleatoire
+        // ceci peut-etre ameliorer en utilisant un systeme de question deja repondu
+        // afin de ne pas avoir 2 fois la meme question
         $question = Question::inRandomOrder()->first();
 
         return view('quiz.index', compact('question'));
@@ -40,10 +42,11 @@ class QuizController extends Controller
 
         $question = Question::findOrFail($currentQuestionId);
         // Conversion en lowercase et split des mots
+        // Cette validation permet d'accepter une réponse comme "Inde", pour une réponse "En Inde, Inde du sud"
+        // Il arrive que la validation n'as pas le comportement souhaité
         $submittedWords = explode(' ', strtolower(trim($request->answer)));
         $correctWords = explode(' ', strtolower(trim($question->answer)));
 
-        // On verifie que les mots soumis sont tous dans la reponse, validation plus relaxe
         $isCorrect = count(array_intersect($submittedWords, $correctWords)) == count($submittedWords);
 
         if ($isCorrect) {
@@ -51,14 +54,14 @@ class QuizController extends Controller
             $request->session()->put('score', $score + 1);
         }
 
-
         do {
             $nextQuestion = Question::where('id', '!=', $currentQuestionId)
                                     ->inRandomOrder()
                                     ->first();
         } while ($nextQuestion && $nextQuestion->id == $lastQuestionId);
 
-        // le systeme last_question_id permet de ne pas avoir 2 fois la meme question
+        // le systeme last_question_id permet de ne pas avoir 2 fois la meme question d'affilé
+        // cela n'empeche pas d'avoir 2 fois la meme question dans le quiz
         $request->session()->put('last_question_id', $currentQuestionId);
 
         return response()->json([

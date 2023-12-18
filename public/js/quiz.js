@@ -1,4 +1,6 @@
 function initializeQuiz(quizData) {
+    // quizData est une variable globale définie dans le fichier HTML
+    // qui contient les données du quiz (questionId, submitUrl, etc.)
     let timeLeft = 10;
     let score = 0;
     let questionsAnswered = 0;
@@ -8,6 +10,7 @@ function initializeQuiz(quizData) {
     const endMessageElement = document.getElementById("end-message");
     let countdown;
 
+    // Vérification de la présence des éléments HTML
     if (!timerElement || !scoreElement || !endMessageElement) {
         console.error("Un element HTML manque.");
         return;
@@ -21,14 +24,16 @@ function initializeQuiz(quizData) {
         return;
     }
 
+    // Gestion de la soumission du formulaire
     answerForm.addEventListener("submit", function (event) {
         event.preventDefault();
         submitAnswer();
     });
 
+
     const submitAnswer = () => {
         const answer = document.getElementById("answer").value || "TIMEOUT";
-
+        // Envoi de la réponse au serveur
         axios
             .post(quizData.submitUrl, {
                 answer: answer,
@@ -38,6 +43,7 @@ function initializeQuiz(quizData) {
                 const data = response.data;
                 questionsAnswered += 1;
 
+                //validation de la réponse
                 if (data.correct) {
                     score += 1;
                     scoreElement.innerText = `Score: ${score}`;
@@ -56,6 +62,7 @@ function initializeQuiz(quizData) {
             });
     };
 
+    // recuperation de la question suivante
     const updateQuestion = (question) => {
         if (question) {
             document.getElementById("question").textContent =
@@ -65,10 +72,14 @@ function initializeQuiz(quizData) {
             // maj de l'ID de la question
             quizData.questionId = question.id;
 
+            // Le timer met parfois quelques centaines de millisecondes a ce mettre a jour en frontend
+            // backend, le timer semble a jour
             resetTimer();
 
             const questionImage = document.getElementById("question-image");
             if (question.image) {
+                // les images sont stockées dans le dossier public/images
+                // les noms de fichiers sont stockés dans la base de données
                 questionImage.src = "/images/" + question.image;
                 questionImage.style.display = "block";
             } else {
@@ -84,6 +95,8 @@ function initializeQuiz(quizData) {
         window.location.href = '/quiz/end'; //affichage de l'ecran de fin
     };
 
+    // Gestion du timer
+    // repris d'exemples sur internet
     const startCountdown = () => {
         clearInterval(countdown);
         countdown = setInterval(() => {
@@ -101,7 +114,7 @@ function initializeQuiz(quizData) {
 
     const resetTimer = () => {
         timeLeft = 10;
-        startCountdown(); // Restart the countdown
+        startCountdown(); // relance le timer
     };
 
     startCountdown();

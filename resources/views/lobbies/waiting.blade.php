@@ -5,6 +5,7 @@
 @section('content')
     <h1>Salon</h1>
     <h2>Joueurs</h2>
+    <!-- liste de joueurs du lobby -->
     <div>
         <ul>
             @foreach ($players as $player)
@@ -16,11 +17,13 @@
                     @endif
                     - Score: {{ $playerScores[$player->id] ?? 'N/A' }}
                     @if ($player->id == $highestScorePlayerId)
+                        <!-- affichage de la couronne pour le joueur avec le plus haut score -->
                         <img id="crown" src="{{asset('images/crown.png')}}">
                     @endif
                 </li>
             @endforeach
         </ul>
+        <!-- l'ujtilisateur peut copier le lien d'invitation et lancer la partie -->
         <button class="btn btn-primary"
             onclick="copyLinkToClipboard('{{ route('players.create', ['id' => $lobby->id]) }}', this)">Copier le lien
             d'invitation</button>

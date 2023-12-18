@@ -18,6 +18,8 @@ class QuestionController extends Controller
         return view('questions.create');
     }
 
+    //fonction qui permet de creer une question
+    //l'image est obligatoire, afin de ne pas devoir gerer plusieurs cas
     public function store(Request $request)
     {
         $request->validate([
@@ -46,9 +48,6 @@ class QuestionController extends Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     */
     public function show(int $id)
     {
         $question = Question::findOrFail($id);
@@ -68,6 +67,7 @@ class QuestionController extends Controller
         return view('questions.edit', compact('question'));
     }
 
+    //fonction qui permet de modifier une question existante 
     public function update(Request $request, $id)
     {
         $request->validate([

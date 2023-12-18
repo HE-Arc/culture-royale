@@ -5,12 +5,13 @@
             <a class="btn btn-primary" href="{{ route('questions.index') }}"> Retour</a>
         </div>
     </div>
-
+    <!-- affichage d'une question -->
     <div class="row">
         <div class="col-12 col-lg-6 offset-0 offset-lg-3">
                 <h1 >
                     <strong>{{ $question->title }}</strong>
                 </h1>
+                <!-- affichage de l'image de la question si elle existe -->
                 @if ($question->image)
                     <div class="text-center">
                         <img src="{{ asset('images/' . $question->image) }}" alt="Question Image" class="img-fluid">

@@ -3,7 +3,7 @@
 @section('content')
     <h1>Culture Royale</h1>
     <p class="lead">Top mondial</p>
-
+    <!-- affichage des scores du top mondial -->
     <table class="table">
         <thead>
             <tr>

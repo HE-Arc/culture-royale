@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="{{ asset('css/layout/game.css') }}">
 <link rel="stylesheet" href="{{ asset('css/quiz/index.css') }}">
 @section('content')
+    <!-- Quiz Container -->
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -18,7 +19,7 @@
                     Temps : <strong>10 secondes</strong>
                 </div>
 
-                <!-- Answer Form -->
+                <!-- champ de réponse -->
                 <form id="answer-form">
                     <div class="form-group">
                         <input type="text" class="form-control" id="answer" placeholder="Ta réponse">
@@ -27,7 +28,7 @@
                 </form>
                 <div id="score">Score: 0</div>
                 <div id="end-message"></div>
-
+                <!-- affichage des joueurs du lobby-->
                 <div class="mt-4">
                     <h5>Joueurs :</h5>
                     <div class="d-flex flex-row">
@@ -44,7 +45,7 @@
             </div>
         </div>
     </div>
-
+    <!-- script avec ajax pour le quiz, voir quiz.js -->
     <script src="{{ asset('js/quiz.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() { //au cas ou le contenu charge avant le script

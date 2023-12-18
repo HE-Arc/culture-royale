@@ -9,10 +9,13 @@ class ScoreController extends Controller
 {
     public function index()
     {
+
+        //recuperer les 100 meilleurs scores
         $scoreboard = Score::orderBy('score', 'DESC')->limit(100)->get();
         return view('scores.index', ['scores' => $scoreboard]);
     }
 
+    //fonction qui permet de stocker un score
     public function store(Request $request)
     {
         $request->validate([

@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h1>Ajouter une question</h1>
-
+                <!-- formulaire pour ajouter une question -->
                 <form action="{{ route('questions.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
@@ -33,6 +33,7 @@
                         <label for="image">Choisir une image</label>
                         <input type="file" id="image" name="image" class="form-control"
                             accept=".jpeg,.png,.jpg,.gif,.svg">
+                            <!-- les tests ont été fait avec des images en .jpg, .png-->
                     </div>
 
                     <button type="submit" class="btn btn-primary">Ajouter la question</button>

@@ -4,7 +4,8 @@
 @section('content')
     <h1>Culture Royale</h1>
     <p class="lead">Bienvenue</p>
-    <h3>Salons disponbiles</h3>
+    <h3>Salons disponibles</h3>
+    <!-- affichage des salons -->
     <div class="container mt-3">
         <form action="{{ route('lobbies.store') }}" method="post">
             @csrf
@@ -15,7 +16,7 @@
                 <div class="list-group-item">
                     <div class="d-flex justify-content-between align-items-center">
                         Salon #{{ $lobby->id }}
-                        <!-- Join Lobby Form - POST-->
+                        <!-- permet de rejoindre un salon si on est connecté, sinon on est redirigé vers la page de connexion -->
                         @if (session('currentPlayer'))
                             <form action="{{ route('lobbies.store') }}" method="post">
                                 @csrf
