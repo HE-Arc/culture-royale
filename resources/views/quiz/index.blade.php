@@ -6,11 +6,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                <p class="lead" id="question">{{$question->statement}}</p>
-                @if ($question->image)
-                    <img id="question-image" src="{{ $question->image ? asset('images/' . $question->image) : '' }}"
-                        alt="Question Image" class="img-fluid mb-3" style="{{ $question->image ? '' : 'display: none;' }}">
-                @endif
+                <div id="question-container">
+                    <p class="lead" id="question" style="display: inline">{{ $question->statement }}</p>
+                    @if ($question->image)
+                        <img id="question-image" src="{{ $question->image ? asset('images/' . $question->image) : '' }}"
+                            alt="Question Image" class="img-fluid mb-3"
+                            style="{{ $question->image ? '' : 'display: none;' }}">
+                    @endif
+                </div>
                 <div id="timer" class="alert alert-warning text-center">
                     Temps : <strong>10 secondes</strong>
                 </div>
