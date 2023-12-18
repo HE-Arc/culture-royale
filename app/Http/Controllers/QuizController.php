@@ -6,7 +6,7 @@ use App\Models\Question;
 use Illuminate\Http\Request;
 
 class QuizController extends Controller
-{ 
+{
 
     public function index()
     {
@@ -21,7 +21,7 @@ class QuizController extends Controller
 
     public function start()
     {
-        return view('quiz.start'); //on retourne la vue start avec le bouton 
+        return view('quiz.start'); //on retourne la vue start avec le bouton
     }
 
     public function end(Request $request)
@@ -35,8 +35,10 @@ class QuizController extends Controller
     {
         $request->validate(['answer' => 'required', 'question_id' => 'required']);
 
-        $question = Question::findOrFail($request->question_id);
+        $currentQuestionId = $request->input('question_id');
+        $lastQuestionId = $request->session()->get('last_question_id');
 
+        $question = Question::findOrFail($currentQuestionId);
         // Conversion en lowercase et split des mots
         $submittedWords = explode(' ', strtolower(trim($request->answer)));
         $correctWords = explode(' ', strtolower(trim($question->answer)));
@@ -48,11 +50,16 @@ class QuizController extends Controller
             $score = $request->session()->get('score', 0);
             $request->session()->put('score', $score + 1);
         }
-    
 
-        $nextQuestion = Question::where('id', '!=', $question->id)
-                                ->inRandomOrder()
-                                ->first();
+
+        do {
+            $nextQuestion = Question::where('id', '!=', $currentQuestionId)
+                                    ->inRandomOrder()
+                                    ->first();
+        } while ($nextQuestion && $nextQuestion->id == $lastQuestionId);
+
+        // le systeme last_question_id permet de ne pas avoir 2 fois la meme question
+        $request->session()->put('last_question_id', $currentQuestionId);
 
         return response()->json([
             'correct' => $isCorrect,

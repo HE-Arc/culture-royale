@@ -25,9 +25,6 @@ Route::get('/quiz', [QuizController::class, 'index'])->name('quiz.index');
 Route::get('/quiz/start', [QuizController::class, 'start'])->name('quiz.start');
 Route::get('/quiz/end', [QuizController::class, 'end'])->name('quiz.end');
 Route::post('/quiz/submit', [QuizController::class, 'submitAnswer'])->name('quiz.submit');
-
-
-
 Route::resource('questions', QuestionController::class);
 Route::get('/scores', [ScoreController::class, 'index'])->name("scores.index");
 Route::post('/scores/store', [ScoreController::class, 'store'])->name("scores.store");
