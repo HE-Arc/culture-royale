@@ -16,12 +16,19 @@
                     <div class="d-flex justify-content-between align-items-center">
                         Salon #{{ $lobby->id }}
                         <!-- Join Lobby Form - POST-->
-                        <form action="{{ route('lobbies.store') }}" method="post">
-                            @csrf
-                            <input type="hidden" name="lobby_id" value="{{ $lobby->id }}" />
-                            <input type="hidden" name="playername" value="{{ session('currentPlayer')->name }}" />
-                            <input type="submit" class="btn btn-primary btn-sm" value="Rejoindre" />
-                        </form>
+                        @if (session('currentPlayer'))
+                            <form action="{{ route('lobbies.store') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="lobby_id" value="{{ $lobby->id }}" />
+                                <input type="hidden" name="playername" value="{{ session('currentPlayer')->name }}" />
+                                <input type="submit" class="btn btn-primary btn-sm" value="Rejoindre" />
+                            </form>
+                        @else
+                            <form action="{{ route('players.create', ['id' => $lobby->id]) }}" method="get">
+                                @csrf
+                                <input type="submit" class="btn btn-primary btn-sm" value="Rejoindre" />
+                            </form>
+                        @endif
                     </div>
                     @if ($lobby->players->isNotEmpty())
                         <div>

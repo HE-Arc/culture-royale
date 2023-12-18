@@ -93,7 +93,7 @@ function initializeQuiz(quizData) {
                     '<span class="text-danger">Temps écoulé !</span>';
                 submitAnswer();
             } else {
-                timerElement.innerHTML = `Temps restant: <strong>${timeLeft} seconds</strong>`;
+                timerElement.innerHTML = `Temps restant: <strong>${timeLeft} secondes</strong>`;
             }
             timeLeft -= 1;
         }, 1000);
