@@ -1,6 +1,6 @@
 # Culture Royale
 
-[Imgur](https://imgur.com/S0t489H)
+![Imgur](https://imgur.com/S0t489H)
 
 ## Description
 
